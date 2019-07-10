@@ -1,0 +1,47 @@
+//#define _CRT_SECURE_NO_WARNINGS
+#include <iostream>
+
+using namespace std;
+
+int a[100][100] = {};
+int n, h, w, l, d, x, y;
+
+int main() {
+
+	cin >> h >> w;  //세로, 가로
+
+	cin >> n; //막대개수
+
+	for (int i = 1; i <= n; i++)
+	{
+		cin >> l >> d >> x >> y;
+
+
+		if (d == 1)                          // 0 가로 . 1 세로
+		{
+			for (int j = 0; j < l; j++)
+			{
+				a[x+j][y] = 1;
+			}
+		}
+		else
+		{
+			for (int k = 0; k < l; k++)
+			{
+				a[x][y+k] = 1;
+			}
+		}
+	}
+
+	for (int i= 1; i <= h; i++)
+	{
+		for (int j = 1; j <= w; j++)
+		{
+			printf("%d ", a[i][j]);
+		}
+		printf("\n");
+	}
+
+
+	return 0;
+}
